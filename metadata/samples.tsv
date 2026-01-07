@@ -1,0 +1,5 @@
+sample_id	condition	layout
+SRR1039508	control	paired-end
+SRR1039509	control	paired-end
+SRR1039510	treated	paired-end
+SRR1039511	treated	paired-end
