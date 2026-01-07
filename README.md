@@ -1,70 +1,118 @@
-Human RNA-seq Analysis Pipeline (Alignment-based)
-Overview
--This repository contains an end-to-end RNA-seq analysis pipeline implemented on Linux, following best practices used in production genomics workflows.
--The pipeline processes paired-end human RNA-seq data from raw sequencing reads to gene-level count matrices suitable for downstream differential expression analysis.
+# Human RNA-seq Analysis Pipeline (Alignment-based)
 
-Objectives
--Perform quality control and preprocessing of RNA-seq reads
--Align reads to the human reference genome (GRCh38)
--Quantify gene-level expression using annotation-aware methods
--Organize the workflow in a reproducible, industry-standard manner
+---
 
-Dataset
--Source: NCBI SRA (public RNA-seq data)
--Organism: Homo sapiens
--Samples: SRR1039508, SRR1039509, SRR1039510, SRR1039511
--Library type: Paired-end
--Reference: GRCh38 (GENCODE v44)
+## Overview
 
-Tools & Technologies
--Linux / Bash
--Conda environments
--FastQC, MultiQC
--Trim Galore
--HISAT2
--SAMtools
--featureCounts (Subread)
--R (DESeq2-ready outputs)
+This repository contains an **end-to-end Human RNA-seq analysis pipeline** implemented on **Linux**, following **industry-standard and production-grade genomics workflows**.
 
-Workflow Summary
--Raw data retrieval from SRA
--Read quality assessment (FastQC, MultiQC)
--Adapter and quality trimming
--Reference genome indexing (HISAT2)
--Paired-end read alignment
--BAM sorting and indexing
--Gene-level quantification using GENCODE annotation
+The pipeline processes **paired-end human RNA-seq data** starting from raw sequencing reads and produces **gene-level count matrices**, suitable for downstream **differential expression analysis**.
 
-Repository Structure
+---
+
+## Objectives
+
+- Perform quality control and preprocessing of RNA-seq reads  
+- Align reads to the human reference genome (**GRCh38**)  
+- Quantify gene-level expression using annotation-aware methods  
+- Organize the workflow in a **reproducible and scalable** manner  
+
+---
+
+## Dataset
+
+- **Source:** NCBI SRA (public RNA-seq data)  
+- **Organism:** *Homo sapiens*  
+- **Samples:**  
+  - SRR1039508  
+  - SRR1039509  
+  - SRR1039510  
+  - SRR1039511  
+- **Library Type:** Paired-end  
+- **Reference Genome:** GRCh38 (GENCODE v44)  
+
+---
+
+## Tools & Technologies
+
+- Linux / Bash  
+- Conda environments  
+- FastQC  
+- MultiQC  
+- Trim Galore  
+- HISAT2  
+- SAMtools  
+- featureCounts (Subread)  
+- R (DESeq2-ready outputs)  
+
+---
+
+## Workflow Summary
+
+1. Raw data retrieval from SRA  
+2. Read quality assessment (FastQC, MultiQC)  
+3. Adapter and quality trimming  
+4. Reference genome indexing (HISAT2)  
+5. Paired-end read alignment  
+6. BAM sorting and indexing  
+7. Gene-level quantification using GENCODE annotation  
+
+---
+
+## Repository Structure
 rnaseq-human-analysis/
+
 ├── README.md
-├── .gitignore
+
 ├── scripts/
-│   └── rnaseq_pipeline.sh
+
+│ └── rnaseq_pipeline.sh
+
 ├── metadata/
-│   └── samples.tsv
+
+│ └── samples.tsv
+
 ├── notes/
-│   └── rnaseq_notes.md
+
+│ └── rnaseq_notes.md
+
 └── results/
-    └── gene_counts_preview.txt
 
-Results
--A full gene count matrix (~41 MB) was generated using featureCounts.
--Large output files (FASTQ, BAM, full count matrices) are intentionally excluded from version control.
--A small preview file is provided to demonstrate output format.
--All results can be reproduced using the pipeline script.
+└── gene_counts_preview.txt
 
-Reproducibility
--All commands are documented in scripts/
--Reference genome and annotation versions are explicitly specified
--Pipeline is portable to cloud or HPC environments
+---
 
-Skills Demonstrated
--RNA-seq alignment-based workflows
--NGS data processing on Linux
--Genomic reference and annotation handling
--Reproducible pipeline design
--Responsible data management
+## Results
 
-#Notes
--Learning notes and observations are documented in notes/rnaseq_notes.md.
+- A full **gene count matrix (~41 MB)** was generated using **featureCounts**  
+- Large output files (FASTQ, BAM, full count matrices) are intentionally **excluded from version control**  
+- A **small preview file** is included to demonstrate output format  
+- All results are **fully reproducible** using the provided pipeline script  
+
+---
+
+## Reproducibility
+
+- All commands are documented in the `scripts/` directory  
+- Reference genome and annotation versions are explicitly specified  
+- Pipeline can be easily adapted for **HPC or cloud-based environments**  
+
+---
+
+## Skills Demonstrated
+
+- RNA-seq alignment-based analysis workflows  
+- NGS data processing on Linux  
+- Genomic reference and annotation handling  
+- Reproducible pipeline design  
+- Responsible and scalable data management  
+
+---
+
+## 📝 Notes
+
+- Learning notes, observations, and practical insights are documented in the `notes/` directory  
+
+---
+
+*This repository reflects industry-level RNA-seq analysis practices used in real-world genomics pipelines.*
